@@ -47,6 +47,11 @@ const Analytics = ({ clicks }) => {
 };
 
 const App = () => {
+
+  ReactGA.send({hitType: "pageview",
+                page: window.location.pathname + window.location.search, 
+                title: "CHome Page" });
+
   const [buttons] = useState([
     { text: 'Buy Now', color: 'blue' },
     { text: 'Sign Up', color: 'green' },
