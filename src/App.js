@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import ReactGA from 'react-ga4';
 
-const TRACKING_ID = 'G-SRZRLJ1P6M';
+const TRACKING_ID = 'G-ZQW5D4LHSV';
 ReactGA.initialize(TRACKING_ID);
-ReactGA.send({hitType:"pageview", page:"C:\Users\Charles\Desktop\Play2Earn\track user\cta-button-test\public\index.html"})
 
 const ButtonTest = ({ buttons, onButtonClick }) => {
   return (
