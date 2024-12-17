@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import ReactGA from 'react-ga4';
 
@@ -47,10 +47,14 @@ const Analytics = ({ clicks }) => {
 };
 
 const App = () => {
-
-  ReactGA.send({hitType: "pageview",
-                page: window.location.pathname + window.location.search, 
-                title: "CHome Page" });
+  // Send pageview only once when the component mounts
+  useEffect(() => {
+    ReactGA.send({
+      hitType: 'pageview',
+      page: window.location.pathname + window.location.search,
+      title: 'Home Page',
+    });
+  }, []);
 
   const [buttons] = useState([
     { text: 'Buy Now', color: 'blue' },
@@ -65,10 +69,11 @@ const App = () => {
     newClicks[index] += 1;
     setClicks(newClicks);
 
+    // Send button click event to Google Analytics
     ReactGA.event({
       category: 'CTA Button',
       action: `Button ${index + 1} Clicked`,
-      label:buttons[index].text,
+      label: buttons[index].text,
     });
   };
 
