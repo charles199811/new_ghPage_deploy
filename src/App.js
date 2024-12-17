@@ -64,6 +64,12 @@ const App = () => {
     const newClicks = [...clicks];
     newClicks[index] += 1;
     setClicks(newClicks);
+
+    ReactGA.event({
+      category: 'CTA Button',
+      action: `Button ${index + 1} Clicked`,
+      label:buttons[index].text,
+    });
   };
 
   return (
